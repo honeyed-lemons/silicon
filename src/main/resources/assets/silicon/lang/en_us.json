@@ -1,4 +1,6 @@
 {
   "block.silicon.gem_pillar": "Unknown Stone Pillar",
-  "block.silicon.gem_insignia": "Unknown Stone Carving"
+  "block.silicon.gem_insignia": "Unknown Stone Carving",
+
+  "itemGroup.siliconitemgroup": "Silicon - Blocks"
 }

@@ -1,6 +1,7 @@
 package com.lemby.silicon.init;
 
 import com.lemby.silicon.Silicon;
+import com.lemby.silicon.blocks.GemInsigniaBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ToolType;
@@ -22,7 +23,7 @@ public class SiliconBlocks {
                     }
     );
     public static final RegistryObject<Block> GEM_INSIGNIA = BLOCKS.register("gem_insignia", () ->
-            new Block(Block.Properties
+            new GemInsigniaBlock(Block.Properties
                     .create(Material.ROCK)
                     .hardnessAndResistance(0.8f, 0.8f)
                     .sound(SoundType.STONE)

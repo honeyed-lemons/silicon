@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=east": {
+      "model": "silicon:block/gem_insignia",
+      "y": 90
+    },
+    "facing=north": {
       "model": "silicon:block/gem_insignia"
+    },
+    "facing=south": {
+      "model": "silicon:block/gem_insignia",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "silicon:block/gem_insignia",
+      "y": 270
     }
   }
 }

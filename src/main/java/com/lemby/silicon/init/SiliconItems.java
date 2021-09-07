@@ -2,6 +2,7 @@ package com.lemby.silicon.init;
 
 import com.gempire.util.ModItemGroup;
 import com.lemby.silicon.Silicon;
+import com.lemby.silicon.itemgroup.SiliconItemGroup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
@@ -14,13 +15,13 @@ public class SiliconItems {
     public static final RegistryObject<Item> GEM_PILLAR = ITEMS.register("gem_pillar", () ->
             new BlockItem(
                     SiliconBlocks.GEM_PILLAR.get(),
-                    new Item.Properties().group(ModItemGroup.BLOCKS)
+                    new Item.Properties().group(SiliconItemGroup.SILICON_ITEM_GROUP)
             )
     );
     public static final RegistryObject<Item> GEM_INSIGNIA = ITEMS.register("gem_insignia", () ->
             new BlockItem(
                     SiliconBlocks.GEM_INSIGNIA.get(),
-                    new Item.Properties().group(ModItemGroup.BLOCKS)
+                    new Item.Properties().group(SiliconItemGroup.SILICON_ITEM_GROUP)
             )
     );
 }
