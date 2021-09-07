@@ -1,5 +1,6 @@
 package com.lemby.silicon.init;
 
+import com.lemby.silicon.Silicon;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ToolType;

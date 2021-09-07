@@ -1,5 +1,6 @@
-package com.lemby.silicon.init;
+package com.lemby.silicon;
 
+import com.lemby.silicon.init.RegistryHandler;
 import net.minecraft.block.Block;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
