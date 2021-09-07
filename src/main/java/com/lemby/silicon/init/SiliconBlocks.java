@@ -14,7 +14,7 @@ public class SiliconBlocks {
     public static final RegistryObject<Block> GEM_PILLAR = BLOCKS.register("gem_pillar", () ->
                     new RotatedPillarBlock(Block.Properties
                             .create(Material.ROCK)
-                            .hardnessAndResistance(5.0f, 6.0f)
+                            .hardnessAndResistance(0.8f, 0.8f)
                             .sound(SoundType.STONE)
                             .harvestLevel(1)
                             .harvestTool(ToolType.PICKAXE)
@@ -24,7 +24,7 @@ public class SiliconBlocks {
     public static final RegistryObject<Block> GEM_INSIGNIA = BLOCKS.register("gem_insignia", () ->
             new Block(Block.Properties
                     .create(Material.ROCK)
-                    .hardnessAndResistance(5.0f, 6.0f)
+                    .hardnessAndResistance(0.8f, 0.8f)
                     .sound(SoundType.STONE)
                     .harvestLevel(1)
                     .harvestTool(ToolType.PICKAXE)
