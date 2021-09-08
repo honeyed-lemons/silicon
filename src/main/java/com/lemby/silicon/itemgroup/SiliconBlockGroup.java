@@ -6,16 +6,17 @@ import net.minecraft.item.ItemStack;
 
 import java.util.function.Supplier;
 
-public class SiliconItemGroup extends ItemGroup {
+public class SiliconBlockGroup extends ItemGroup {
 
     private Supplier<ItemStack> displayStack;
 
-    public static final SiliconItemGroup SILICON_ITEM_GROUP = new SiliconItemGroup("siliconitemgroup", () -> new ItemStack(SiliconItems.CRYSTAL_APPLE.get()));
+    public static final SiliconBlockGroup SILICON_BLOCK_GROUP = new SiliconBlockGroup("siliconblockgroup", () -> new ItemStack(SiliconItems.GEM_INSIGNIA.get()));
 
-    private SiliconItemGroup(String label, Supplier<ItemStack> displayStack) {
+    private SiliconBlockGroup(String label, Supplier<ItemStack> displayStack) {
         super(label);
         this.displayStack = displayStack;
     }
+
     @SuppressWarnings("NullableProblems")
     @Override
     public ItemStack createIcon() { return displayStack.get(); }
