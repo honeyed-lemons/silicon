@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "silicon:block/gem_slab"
+    },
+    "type=double": {
+      "model": "silicon:block/gem_block"
+    },
+    "type=top": {
+      "model": "silicon:block/gem_slab_top"
+    }
+  }
+}

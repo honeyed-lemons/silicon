@@ -1,6 +1,8 @@
 {
-  "block.silicon.gem_pillar": "Unknown Stone Pillar",
-  "block.silicon.gem_insignia": "Unknown Stone Carving",
+  "block.silicon.gem_pillar": "Ruin Pillar",
+  "block.silicon.gem_insignia": "Ruin Carving",
+  "block.silicon.gem_slab": "Ruin Slab",
+  "block.silicon.gem_block": "Ruin Block",
 
   "itemGroup.siliconitemgroup": "Silicon - Blocks"
 }

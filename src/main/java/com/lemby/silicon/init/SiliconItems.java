@@ -24,4 +24,16 @@ public class SiliconItems {
                     new Item.Properties().group(SiliconItemGroup.SILICON_ITEM_GROUP)
             )
     );
+    public static final RegistryObject<Item> GEM_SLAB = ITEMS.register("gem_slab", () ->
+            new BlockItem(
+                    SiliconBlocks.GEM_SLAB.get(),
+                    new Item.Properties().group(SiliconItemGroup.SILICON_ITEM_GROUP)
+            )
+    );
+    public static final RegistryObject<Item> GEM_BLOCK = ITEMS.register("gem_block", () ->
+            new BlockItem(
+                    SiliconBlocks.GEM_BLOCK.get(),
+                    new Item.Properties().group(SiliconItemGroup.SILICON_ITEM_GROUP)
+            )
+    );
 }
