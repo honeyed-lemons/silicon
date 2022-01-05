@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CHC",
+    "CEC",
+    "CCC"
+  ],
+  "key": {
+    "E": {
+      "item": "gempire:yellow_essence"
+    },
+    "C": {
+      "item": "minecraft:yellow_concrete"
+    },
+    "H": {
+      "item": "gempire:yellow_chroma"
+    }
+  },
+  "result": {
+    "item": "silicon:gem_wall_4"
+  }
+}

@@ -3,9 +3,20 @@
   "block.silicon.gem_insignia": "Ruin Carving",
   "block.silicon.gem_slab": "Ruin Slab",
   "block.silicon.gem_block": "Ruin Block",
+  "block.silicon.crystal_log": "Crystal Log",
+
+  "block.silicon.gem_wall_4": "Yellow Wall Gem",
+  "block.silicon.gem_wall_6": "Pink Wall Gem",
+  "block.silicon.gem_wall_3": "Blue Wall Gem",
+  "block.silicon.gem_wall_0": "White Wall Gem",
+
+
+  "entity.gempire.sugar": "Sucrose",
 
   "item.silicon.crystal_apple": "Crystal Apple",
+  "item.silicon.sugar_gem": "Sucrose Gem",
 
   "itemGroup.siliconitemgroup": "Silicon - Items",
-  "itemGroup.siliconblockgroup": "Silicon - Blocks"
+  "itemGroup.siliconblockgroup": "Silicon - Blocks",
+  "itemGroup.silicongemgroup": "Silicon - Gems"
 }

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CHC",
+    "CEC",
+    "CCC"
+  ],
+  "key": {
+    "E": {
+      "item": "gempire:pink_essence"
+    },
+    "C": {
+      "item": "minecraft:pink_concrete"
+    },
+    "H": {
+      "item": "gempire:pink_chroma"
+    }
+  },
+  "result": {
+    "item": "silicon:gem_wall_6"
+  }
+}

@@ -1,11 +1,17 @@
 package com.lemby.silicon;
 
+import com.lemby.silicon.client.render.RenderSugar;
+import com.lemby.silicon.entities.gems.EntitySugar;
 import com.lemby.silicon.init.RegistryHandler;
+import com.lemby.silicon.init.SiliconEntities;
 import net.minecraft.block.Block;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -45,10 +51,15 @@ public class Silicon
 
     private void setup(final FMLCommonSetupEvent event)
     {
+        DeferredWorkQueue.runLater(() -> {
+            GlobalEntityTypeAttributes.put(SiliconEntities.SUGAR.get(), EntitySugar.setCustomAttributes().create());
+        });
+        SiliconEntities.registerEntitiesToGempire();
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
+        RenderingRegistry.registerEntityRenderingHandler(SiliconEntities.SUGAR.get(), RenderSugar::new);
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

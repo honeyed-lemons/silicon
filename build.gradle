@@ -99,8 +99,9 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.16.4-35.1.0'
 
-    compileOnly fg.deobf("curse.maven:gempire-427613:3332656")
-    runtimeOnly fg.deobf("curse.maven:gempire-427613:3332656")
+    compileOnly fg.deobf("curse.maven:gempire-427613:3474732")
+    runtimeOnly fg.deobf("curse.maven:gempire-427613:3474732" +
+            "")
 
     // Real examples
     // compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env

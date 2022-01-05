@@ -8,17 +8,18 @@ import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 
-public class GemInsigniaBlock extends HorizontalBlock {
+public class GemInsigniaBlock extends Block {
+    public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
     public GemInsigniaBlock(AbstractBlock.Properties properties) {
         super(properties);
     }
 
 
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(HORIZONTAL_FACING);
+        builder.add(FACING);
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(HORIZONTAL_FACING, context.getPlacementHorizontalFacing().getOpposite());
+        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
     }
 }
