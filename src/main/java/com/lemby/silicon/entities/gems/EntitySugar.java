@@ -19,6 +19,7 @@ import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PotionEntity;
@@ -32,28 +33,34 @@ import net.minecraft.potion.Effects;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.potion.Potions;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.RegistryObject;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class EntitySugar extends EntityGem {
 
     public EntitySugar(EntityType<? extends CreatureEntity> type, World worldIn) {
         super(type, worldIn);
     }
+
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
 
         return MobEntity.func_233666_p_()
                 .createMutableAttribute(Attributes.MAX_HEALTH, 50.0D)
                 .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.4D)
-                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 69420666.0D)
+                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 6.0D)
                 .createMutableAttribute(Attributes.ATTACK_SPEED, 1.0D);
     }
+
 
     @Override
     protected void registerGoals() {
@@ -72,32 +79,32 @@ public class EntitySugar extends EntityGem {
     }
 
     public void attackEntityWithRangedAttack(LivingEntity target, float distanceFactor) {
-            Vector3d vector3d = target.getMotion();
-            double d0 = target.getPosX() + vector3d.x - this.getPosX();
-            double d1 = target.getPosYEye() - (double)1.1F - this.getPosY();
-            double d2 = target.getPosZ() + vector3d.z - this.getPosZ();
-            float f = MathHelper.sqrt(d0 * d0 + d2 * d2);
-            Potion potion = Potions.HARMING;
-            if (target instanceof AbstractSkeletonEntity) {
-                    potion = Potions.HEALING;
-                }
+        Vector3d vector3d = target.getMotion();
+        double d0 = target.getPosX() + vector3d.x - this.getPosX();
+        double d1 = target.getPosYEye() - (double) 1.1F - this.getPosY();
+        double d2 = target.getPosZ() + vector3d.z - this.getPosZ();
+        float f = MathHelper.sqrt(d0 * d0 + d2 * d2);
+        Potion potion = Potions.HARMING;
+        if (target instanceof AbstractSkeletonEntity) {
+            potion = Potions.HEALING;
+        }
         if (target instanceof ZombieEntity) {
             potion = Potions.HEALING;
         }
         if (target instanceof HuskEntity) {
             potion = Potions.HEALING;
         }
-                this.setAttackTarget((LivingEntity)null);
-            PotionEntity potionentity = new PotionEntity(this.world, this);
-            potionentity.setItem(PotionUtils.addPotionToItemStack(new ItemStack(Items.SPLASH_POTION), potion));
-            potionentity.rotationPitch -= -20.0F;
-            potionentity.shoot(d0, d1 + (double)(f * 0.2F), d2, 0.75F, 8.0F);
-            if (!this.isSilent()) {
-                this.world.playSound((PlayerEntity)null, this.getPosX(), this.getPosY(), this.getPosZ(), SoundEvents.ENTITY_WITCH_THROW, this.getSoundCategory(), 1.0F, 0.8F + this.rand.nextFloat() * 0.4F);
-            }
-
-            this.world.addEntity(potionentity);
+        this.setAttackTarget((LivingEntity) null);
+        PotionEntity potionentity = new PotionEntity(this.world, this);
+        potionentity.setItem(PotionUtils.addPotionToItemStack(new ItemStack(Items.SPLASH_POTION), potion));
+        potionentity.rotationPitch -= -20.0F;
+        potionentity.shoot(d0, d1 + (double) (f * 0.2F), d2, 0.75F, 8.0F);
+        if (!this.isSilent()) {
+            this.world.playSound((PlayerEntity) null, this.getPosX(), this.getPosY(), this.getPosZ(), SoundEvents.ENTITY_WITCH_THROW, this.getSoundCategory(), 1.0F, 0.8F + this.rand.nextFloat() * 0.4F);
         }
+
+        this.world.addEntity(potionentity);
+    }
 
     public String getModID() {
         return Silicon.MODID;
@@ -113,6 +120,24 @@ public class EntitySugar extends EntityGem {
         return 0;
     }
 
+
+    public ActionResultType applyPlayerInteraction(PlayerEntity player, Vector3d vec, Hand hand) {
+        if (player.world.isRemote) {
+            return super.applyPlayerInteraction(player, vec, hand);
+        }
+            if (hand == Hand.MAIN_HAND) {
+                this.currentPlayer = player;
+                if (player.getHeldItemMainhand().getItem() == Items.APPLE) {
+                    if (this.isOwner(player)) {
+                        this.entityDropItem(SiliconItems.CRYSTAL_APPLE.get());
+                            if (!player.abilities.isCreativeMode) {
+                                player.getHeldItemMainhand().shrink(1);
+                        }
+                    }
+                }
+            }
+        return super.applyPlayerInteraction(player, vec, hand);
+        }
 
     @Override
     public GemPlacements[] getPlacements() {
