@@ -1,10 +1,15 @@
 package com.lemby.silicon;
 
+import com.lemby.silicon.client.render.RenderCoal;
 import com.lemby.silicon.client.render.RenderSugar;
+import com.lemby.silicon.entities.gems.EntityCoal;
 import com.lemby.silicon.entities.gems.EntitySugar;
 import com.lemby.silicon.init.RegistryHandler;
+import com.lemby.silicon.init.SiliconBlocks;
 import com.lemby.silicon.init.SiliconEntities;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -22,6 +27,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.awt.*;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -53,13 +59,19 @@ public class Silicon
     {
         DeferredWorkQueue.runLater(() -> {
             GlobalEntityTypeAttributes.put(SiliconEntities.SUGAR.get(), EntitySugar.setCustomAttributes().create());
+            GlobalEntityTypeAttributes.put(SiliconEntities.COAL.get(), EntityCoal.setCustomAttributes().create());
         });
         SiliconEntities.registerEntitiesToGempire();
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
+
         RenderingRegistry.registerEntityRenderingHandler(SiliconEntities.SUGAR.get(), RenderSugar::new);
+        RenderingRegistry.registerEntityRenderingHandler(SiliconEntities.COAL.get(), RenderCoal::new);
+
+        RenderTypeLookup.setRenderLayer(SiliconBlocks.COAL_TORCH.get(),RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(SiliconBlocks.WALL_COAL_TORCH.get(),RenderType.getCutout());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
@@ -88,7 +100,7 @@ public class Silicon
     public static class RegistryEvents {
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-            // register a new block here
+            // register a new block heref
             LOGGER.info("HELLO from Register Block");
         }
     }

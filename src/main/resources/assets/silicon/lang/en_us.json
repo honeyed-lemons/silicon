@@ -4,6 +4,8 @@
   "block.silicon.gem_slab": "Ruin Slab",
   "block.silicon.gem_block": "Ruin Block",
   "block.silicon.crystal_log": "Crystal Log",
+  "block.silicon.coal_torch": "Coal Torch",
+  "block.silicon.wall_coal_torch": "Coal Torch",
 
   "block.silicon.gem_wall_4": "Yellow Wall Gem",
   "block.silicon.gem_wall_6": "Pink Wall Gem",
@@ -13,8 +15,12 @@
 
   "entity.gempire.sugar": "Sucrose",
 
+  "entity.gempire.coal": "Coal",
+
   "item.silicon.crystal_apple": "Crystal Apple",
+  "item.silicon.coal_torch": "Coal Torch",
   "item.silicon.sugar_gem": "Sucrose Gem",
+  "item.silicon.coal_gem": "Coal Gem",
 
   "itemGroup.siliconitemgroup": "Silicon - Items",
   "itemGroup.siliconblockgroup": "Silicon - Blocks",

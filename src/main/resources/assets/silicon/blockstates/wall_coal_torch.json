@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "silicon:block/wall_coal_torch"
+    },
+    "facing=north": {
+      "model": "silicon:block/wall_coal_torch",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "silicon:block/wall_coal_torch",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "silicon:block/wall_coal_torch",
+      "y": 180
+    }
+  }
+}

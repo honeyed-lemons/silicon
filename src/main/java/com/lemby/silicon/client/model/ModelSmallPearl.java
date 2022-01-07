@@ -8,7 +8,7 @@ import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelSugar<T extends EntityGem> extends ModelGem<T> {
+public class ModelSmallPearl<T extends EntityGem> extends ModelGem<T> {
     public ModelRenderer gemHeadwear;
     public ModelRenderer gemHead;
     public ModelRenderer gemBody;
@@ -19,14 +19,19 @@ public class ModelSugar<T extends EntityGem> extends ModelGem<T> {
     public ModelRenderer gemBun;
     public ModelRenderer gemCandyCane;
     public ModelRenderer gemSkirt;
+    public ModelRenderer gemBangsThingUwU;
 
-    public ModelSugar() {
+    public ModelSmallPearl() {
         this.textureWidth = 64;
         this.textureHeight = 64;
 
         this.gemSkirt = new ModelRenderer(this, 34, 48);
         this.gemSkirt.setRotationPoint(0.0F, 8.7F, 0.0F);
         this.gemSkirt.addBox(-4.5F, 0.0F, -3.1F, 9, 10, 6, 0.0F);
+
+        this.gemBangsThingUwU = new ModelRenderer(this, 40, 16);
+        this.gemBangsThingUwU.setRotationPoint(0.0F, 0.0F, 0.0F);
+        this.gemBangsThingUwU.addBox(-6.0F, -10.1F, -4.4F, 12.0F, 10.0F, 0.0F, 0.6F, 0.5F, 0.0F);
 
         this.gemLeftArm = new ModelRenderer(this, 0, 16);
         this.gemLeftArm.setRotationPoint(4.0F, 0.0F, 0.0F);
@@ -71,6 +76,7 @@ public class ModelSugar<T extends EntityGem> extends ModelGem<T> {
         this.gemHead.addChild(this.gemCandyCane);
         this.gemHead.addChild(this.gemBun);
         this.gemHead.addChild(this.gemHeadwear);
+        this.gemHead.addChild(this.gemBangsThingUwU);
     }
 
     @Override
