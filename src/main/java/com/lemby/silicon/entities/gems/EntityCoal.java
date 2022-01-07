@@ -119,8 +119,10 @@ public class EntityCoal extends EntityGem {
             return 1;
         } else if (this.getGemPlacement() == 2) {
             return 0;
+        } else if (this.getGemPlacement() == 0) {
+            return 2;
         } else {
-            return this.rand.nextInt(2);
+            return this.rand.nextInt(3);
         }
     }
 

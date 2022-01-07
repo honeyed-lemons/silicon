@@ -26,8 +26,8 @@ public class SiliconCruxes {
     }
     public static GemConditions COAL_CONDITIONS(){
         ArrayList<Crux> gemCruxes = new ArrayList<>();
-        float gemTemperatureMin = 0f;
-        float gemTemperatureMax = 2f;
+        float gemTemperatureMin = 0.5f;
+        float gemTemperatureMax = 1.5f;
         Item primer = Items.COAL;
         String essences = "pink-blue";
         gemCruxes.add(new Crux(Blocks.COAL_BLOCK.getDefaultState(), 9, CruxType.MINERAL, gemTemperatureMin, gemTemperatureMax));
