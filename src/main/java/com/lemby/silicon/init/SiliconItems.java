@@ -80,4 +80,7 @@ public class SiliconItems {
 
     public static final RegistryObject<Item> COAL_GEM = ITEMS.register("coal_gem", () ->
             new ItemGem(new Item.Properties().group(SiliconItemGroup.SILICON_GEM_GROUP).maxStackSize(1).isImmuneToFire(), Silicon.MODID));
+
+    public static final RegistryObject<Item> AZURITE_GEM = ITEMS.register("azurite_gem", () ->
+            new ItemGem(new Item.Properties().group(SiliconItemGroup.SILICON_GEM_GROUP).maxStackSize(1).isImmuneToFire(), Silicon.MODID));
 }

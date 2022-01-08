@@ -14,13 +14,15 @@
 
 
   "entity.gempire.sugar": "Sucrose",
-
+  "entity.gempire.azurite": "Azurite",
   "entity.gempire.coal": "Coal",
 
   "item.silicon.crystal_apple": "Crystal Apple",
   "item.silicon.coal_torch": "Coal Torch",
+
   "item.silicon.sugar_gem": "Sucrose Gem",
   "item.silicon.coal_gem": "Coal Gem",
+  "item.silicon.azurite_gem": "Azurite Gem",
 
   "itemGroup.siliconitemgroup": "Silicon - Items",
   "itemGroup.siliconblockgroup": "Silicon - Blocks",

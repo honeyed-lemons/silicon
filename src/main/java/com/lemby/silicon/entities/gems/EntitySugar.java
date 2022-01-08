@@ -203,12 +203,12 @@ public class EntitySugar extends EntityGem {
 
     @Override
     public boolean canChangeUniformColorByDefault() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean canChangeInsigniaColorByDefault() {
-        return false;
+        return true;
     }
 
     @Override

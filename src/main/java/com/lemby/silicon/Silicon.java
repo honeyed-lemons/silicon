@@ -1,21 +1,30 @@
 package com.lemby.silicon;
 
+import com.lemby.silicon.client.render.RenderAzurite;
 import com.lemby.silicon.client.render.RenderCoal;
 import com.lemby.silicon.client.render.RenderSugar;
+import com.lemby.silicon.entities.gems.EntityAzurite;
 import com.lemby.silicon.entities.gems.EntityCoal;
 import com.lemby.silicon.entities.gems.EntitySugar;
+import com.lemby.silicon.entities.projectiles.BubbleEntity;
 import com.lemby.silicon.init.RegistryHandler;
 import com.lemby.silicon.init.SiliconBlocks;
 import com.lemby.silicon.init.SiliconEntities;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererManager;
+import net.minecraft.client.renderer.entity.SpriteRenderer;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -27,7 +36,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.awt.*;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -59,6 +67,7 @@ public class Silicon
     {
         DeferredWorkQueue.runLater(() -> {
             GlobalEntityTypeAttributes.put(SiliconEntities.SUGAR.get(), EntitySugar.setCustomAttributes().create());
+            GlobalEntityTypeAttributes.put(SiliconEntities.AZURITE.get(), EntityAzurite.setCustomAttributes().create());
             GlobalEntityTypeAttributes.put(SiliconEntities.COAL.get(), EntityCoal.setCustomAttributes().create());
         });
         SiliconEntities.registerEntitiesToGempire();
@@ -67,13 +76,21 @@ public class Silicon
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
 
+        RenderingRegistry.registerEntityRenderingHandler(SiliconEntities.BUBBLE.get(), new RenderBubbleFactory());
         RenderingRegistry.registerEntityRenderingHandler(SiliconEntities.SUGAR.get(), RenderSugar::new);
+        RenderingRegistry.registerEntityRenderingHandler(SiliconEntities.AZURITE.get(), RenderAzurite::new);
         RenderingRegistry.registerEntityRenderingHandler(SiliconEntities.COAL.get(), RenderCoal::new);
 
         RenderTypeLookup.setRenderLayer(SiliconBlocks.COAL_TORCH.get(),RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(SiliconBlocks.WALL_COAL_TORCH.get(),RenderType.getCutout());
     }
-
+    private static class RenderBubbleFactory implements IRenderFactory<BubbleEntity> {
+        @Override
+        public EntityRenderer<? super BubbleEntity> createRenderFor(EntityRendererManager manager) {
+            ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
+            return new SpriteRenderer<>(manager, itemRenderer);
+        }
+    }
     private void enqueueIMC(final InterModEnqueueEvent event)
     {
         // some example code to dispatch IMC to another mod

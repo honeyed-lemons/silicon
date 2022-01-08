@@ -24,18 +24,19 @@ public class SiliconCruxes {
         gemCruxes.add(new Crux(Blocks.DIORITE.getDefaultState(), 2, CruxType.INORGANIC, gemTemperatureMin, gemTemperatureMax));
         return new GemConditions(gemCruxes, essences, primer, 1, gemTemperatureMin, gemTemperatureMax);
     }
-    public static GemConditions COAL_CONDITIONS(){
+    public static final GemConditions AZURITE_CONDITIONS(){
         ArrayList<Crux> gemCruxes = new ArrayList<>();
         float gemTemperatureMin = 0.5f;
-        float gemTemperatureMax = 1.5f;
-        Item primer = Items.COAL;
-        String essences = "pink-blue";
-        gemCruxes.add(new Crux(Blocks.COAL_BLOCK.getDefaultState(), 9, CruxType.MINERAL, gemTemperatureMin, gemTemperatureMax));
+        float gemTemperatureMax = 0.8f;
+        Item primer = Items.WATER_BUCKET;
+        String essences = "blue";
         gemCruxes.add(new Crux(Blocks.STONE.getDefaultState(), 2, CruxType.INORGANIC, gemTemperatureMin, gemTemperatureMax));
         gemCruxes.add(new Crux(Blocks.GRANITE.getDefaultState(), 2, CruxType.INORGANIC, gemTemperatureMin, gemTemperatureMax));
         gemCruxes.add(new Crux(Blocks.DIORITE.getDefaultState(), 2, CruxType.INORGANIC, gemTemperatureMin, gemTemperatureMax));
-        gemCruxes.add(new Crux(Blocks.COAL_ORE.getDefaultState(), 2, CruxType.MINERAL, gemTemperatureMin, gemTemperatureMax));
-        gemCruxes.add(new Crux(Blocks.DIAMOND_ORE.getDefaultState(), 1, CruxType.MINERAL, gemTemperatureMin, gemTemperatureMax));
-        return new GemConditions(gemCruxes, essences, primer, 1, gemTemperatureMin, gemTemperatureMax);
+        gemCruxes.add(new Crux(Blocks.PRISMARINE.getDefaultState(), 3, CruxType.INORGANIC, gemTemperatureMin, gemTemperatureMax));
+        gemCruxes.add(new Crux(Blocks.LAPIS_ORE.getDefaultState(), 3, CruxType.MINERAL, gemTemperatureMin, gemTemperatureMax));
+        gemCruxes.add(new Crux(Blocks.DARK_PRISMARINE.getDefaultState(), 3, CruxType.INORGANIC, gemTemperatureMin, gemTemperatureMax));
+        gemCruxes.add(new Crux(Blocks.LAPIS_BLOCK.getDefaultState(), 4, CruxType.INORGANIC, gemTemperatureMin, gemTemperatureMax));
+        return new GemConditions(gemCruxes, essences, primer, 2, gemTemperatureMin, gemTemperatureMax);
     }
 }
