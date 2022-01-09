@@ -29,7 +29,7 @@ public class EntityAzurite extends EntityGem implements IRangedAttackMob{
         return MobEntity.func_233666_p_()
                 .createMutableAttribute(Attributes.MAX_HEALTH, 60.0D)
                 .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.3D)
-                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0D)
+                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 100.0D)
                 .createMutableAttribute(Attributes.ATTACK_SPEED, 1.0D);
     }
 
@@ -109,7 +109,7 @@ public class EntityAzurite extends EntityGem implements IRangedAttackMob{
 
     @Override
     public int generateInsigniaVariant() {
-        return 0;
+        return this.rand.nextInt(2);
     }
 
     @Override

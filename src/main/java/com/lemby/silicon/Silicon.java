@@ -56,7 +56,6 @@ public class Silicon
         // Register the processIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         // Register the doClientStuff method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         RegistryHandler.init();
         // Register ourselves for server and other game events we are interested in
@@ -73,18 +72,7 @@ public class Silicon
         SiliconEntities.registerEntitiesToGempire();
     }
 
-    private void doClientStuff(final FMLClientSetupEvent event) {
-        // do something that can only be done on the client
-
-        RenderingRegistry.registerEntityRenderingHandler(SiliconEntities.BUBBLE.get(), new RenderBubbleFactory());
-        RenderingRegistry.registerEntityRenderingHandler(SiliconEntities.SUGAR.get(), RenderSugar::new);
-        RenderingRegistry.registerEntityRenderingHandler(SiliconEntities.AZURITE.get(), RenderAzurite::new);
-        RenderingRegistry.registerEntityRenderingHandler(SiliconEntities.COAL.get(), RenderCoal::new);
-
-        RenderTypeLookup.setRenderLayer(SiliconBlocks.COAL_TORCH.get(),RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(SiliconBlocks.WALL_COAL_TORCH.get(),RenderType.getCutout());
-    }
-    private static class RenderBubbleFactory implements IRenderFactory<BubbleEntity> {
+    public static class RenderBubbleFactory implements IRenderFactory<BubbleEntity> {
         @Override
         public EntityRenderer<? super BubbleEntity> createRenderFor(EntityRendererManager manager) {
             ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();

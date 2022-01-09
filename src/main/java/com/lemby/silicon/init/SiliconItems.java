@@ -73,6 +73,9 @@ public class SiliconItems {
             new Item(new Item.Properties().group(SiliconItemGroup.SILICON_ITEM_GROUP)
                     .food(new Food.Builder().hunger(8).saturation(0.8F).build()))
             );
+    public static final RegistryObject<Item> BUBBLE = ITEMS.register("bubble", () ->
+            new Item(new Item.Properties())
+    );
     //gems
 
     public static final RegistryObject<Item> SUGAR_GEM = ITEMS.register("sugar_gem", () ->

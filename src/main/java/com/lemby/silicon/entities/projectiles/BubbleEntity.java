@@ -2,6 +2,7 @@ package com.lemby.silicon.entities.projectiles;
 
 import com.lemby.silicon.Silicon;
 import com.lemby.silicon.init.SiliconEntities;
+import com.lemby.silicon.init.SiliconItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -39,7 +40,7 @@ public class BubbleEntity extends ProjectileItemEntity {
     }
 
     protected Item getDefaultItem() {
-        return Items.SNOWBALL;
+        return SiliconItems.BUBBLE.get();
     }
 
     protected void onEntityHit(EntityRayTraceResult rayTraceResult) {
