@@ -44,7 +44,7 @@ public class EntityCoal extends EntityGem {
                 .createMutableAttribute(Attributes.MAX_HEALTH, 30.0D)
                 .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.4D)
                 .createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0D)
-                .createMutableAttribute(Attributes.ATTACK_SPEED, 1.0D);
+                .createMutableAttribute(Attributes.ATTACK_SPEED, 0.25D);
     }
 
 
@@ -182,15 +182,15 @@ public class EntityCoal extends EntityGem {
     @Override
     public Abilities[] possibleAbilities() {
         return new Abilities[]{
-                Abilities.PYROKINESIS,
-                Abilities.NO_ABILITY
+                Abilities.NO_ABILITY, Abilities.TANK, Abilities.BEEFCAKE, Abilities.POWERHOUSE, Abilities.UNHINGED
+
         };
     }
 
     @Override
     public Abilities[] definiteAbilities() {
         return new Abilities[]{
-                Abilities.NO_ABILITY
+                Abilities.PYROKINESIS
         };
     }
     @Override

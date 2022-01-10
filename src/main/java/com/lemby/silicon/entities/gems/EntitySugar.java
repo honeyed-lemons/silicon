@@ -214,7 +214,7 @@ public class EntitySugar extends EntityGem {
     @Override
     public Abilities[] possibleAbilities() {
         return new Abilities[]{
-                Abilities.NO_ABILITY
+                Abilities.NO_ABILITY, Abilities.TANK, Abilities.BEEFCAKE, Abilities.POWERHOUSE, Abilities.UNHINGED
         };
     }
 

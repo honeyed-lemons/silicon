@@ -51,9 +51,13 @@ public class SiliconEntities {
         GemFormation.POSSIBLE_GEMS.add("sugar");
         AddonHandler.ENTITY_ADDON_ENTITY_REGISTRIES.put("sugar", SiliconEntities.class);
 //coal
-        ModEntities.CRUXTOGEM.put("coal", SiliconCruxes.AZURITE_CONDITIONS());
+        ModEntities.CRUXTOGEM.put("coal", SiliconCruxes.COAL_CONDITIONS());
         GemFormation.POSSIBLE_GEMS.add("coal");
         AddonHandler.ENTITY_ADDON_ENTITY_REGISTRIES.put("coal", SiliconEntities.class);
+
+        ModEntities.CRUXTOGEM.put("azurite", SiliconCruxes.AZURITE_CONDITIONS());
+        GemFormation.POSSIBLE_GEMS.add("azurite");
+        AddonHandler.ENTITY_ADDON_ENTITY_REGISTRIES.put("azurite", SiliconEntities.class);
 
         AddonHandler.ADDON_ENTITY_REGISTRIES.put("silicon", SiliconEntities.class);
     }

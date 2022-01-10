@@ -29,11 +29,9 @@ public class EntityAzurite extends EntityGem implements IRangedAttackMob{
         return MobEntity.func_233666_p_()
                 .createMutableAttribute(Attributes.MAX_HEALTH, 60.0D)
                 .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.3D)
-                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 100.0D)
+                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 3.0D)
                 .createMutableAttribute(Attributes.ATTACK_SPEED, 1.0D);
     }
-
-    public EntityAzurite holder;
 
     @Override
     protected void registerGoals() {
@@ -43,7 +41,7 @@ public class EntityAzurite extends EntityGem implements IRangedAttackMob{
         this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
         this.goalSelector.addGoal(7, new EntityAIWander(this, 1.0D));
         this.goalSelector.addGoal(7, new EntityAIFollowOwner(this, 1.0D));
-        this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25D, 20, 10.0F));
+        this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.75D, 35, 10.0F));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, MobEntity.class, 10, true, false, (p_213621_0_) -> {
             return p_213621_0_ instanceof IMob;
         }));
@@ -87,13 +85,15 @@ public class EntityAzurite extends EntityGem implements IRangedAttackMob{
 
     public void attackEntityWithRangedAttack(LivingEntity target, float distanceFactor) {
         BubbleEntity bubblyentity = new BubbleEntity(this.world, this);
+
         double d0 = target.getPosYEye() - (double)1.1F;
         double d1 = target.getPosX() - this.getPosX();
         double d2 = d0 - bubblyentity.getPosY();
         double d3 = target.getPosZ() - this.getPosZ();
         float f = MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F;
-        bubblyentity.shoot(d1, d2 + (double)f, d3, 1.6F, 12.0F);
-        this.playSound(SoundEvents.ENTITY_SNOW_GOLEM_SHOOT, 1.0F, 0.4F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+        bubblyentity.shoot(d1, d2 + (double)f, d3, 1.0F, 4.0F);
+
+        this.playSound(SoundEvents.AMBIENT_UNDERWATER_EXIT, 1.0F, 0.4F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
         this.world.addEntity(bubblyentity);
     }
 
@@ -109,7 +109,7 @@ public class EntityAzurite extends EntityGem implements IRangedAttackMob{
 
     @Override
     public int generateInsigniaVariant() {
-        return this.rand.nextInt(2);
+        return this.rand.nextInt(3);
     }
 
     @Override
@@ -160,7 +160,7 @@ public class EntityAzurite extends EntityGem implements IRangedAttackMob{
     @Override
     public Abilities[] possibleAbilities() {
         return new Abilities[]{
-                Abilities.NO_ABILITY
+                Abilities.NO_ABILITY, Abilities.TANK, Abilities.BEEFCAKE, Abilities.POWERHOUSE, Abilities.UNHINGED
         };
     }
 

@@ -46,10 +46,10 @@ public class BubbleEntity extends ProjectileItemEntity {
     protected void onEntityHit(EntityRayTraceResult rayTraceResult) {
         super.onEntityHit(rayTraceResult);
         Entity entity = rayTraceResult.getEntity();
-        int i = entity instanceof BlazeEntity ? 3 : 0;
-        entity.attackEntityFrom(DamageSource.causeThrownDamage(this, this.func_234616_v_()), (float)i);
+        int i = entity instanceof LivingEntity ? 3 : 0;
         if (entity instanceof LivingEntity) {
             ((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.LEVITATION, 200));
+            entity.attackEntityFrom(DamageSource.causeThrownDamage(this, this.func_234616_v_()), (float)i);
         }
     }
 
